@@ -299,6 +299,8 @@ void IFMapChannel::DoSslHandshakeInMainThr(bool is_ssrc) {
     CHECK_CONCURRENCY_MAIN_THR();
     SslStream *socket =
         ((is_ssrc == true) ? ssrc_socket_.get() : arc_socket_.get());
+     // Calling openssl api directly because boost doesn't provide a way to set the cipher
+    SSL_set_cipher_list(socket->native_handle(),"RC4-SHA");
 
     // Calling openssl api directly because boost doesn't provide a way to set
     // the cipher
