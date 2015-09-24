@@ -1,0 +1,120 @@
+Source: contrail
+Section: net
+Priority: optional
+Maintainer: OpenContrail developers <dev@lists.opencontrail.org>
+Standards-Version: 3.9.5
+Homepage: http://opencontrail.org/
+Vcs-Git: git://github.com/Juniper/contrail-controller.git
+Vcs-Browser: https://github.com/Juniper/contrail-controller/
+XS-Python-Version: >= 2.7
+Build-Depends: autoconf,
+               automake,
+               bison,
+               debhelper (>= 8.0.0),
+               flex,
+               libcurl4-openssl-dev,
+               libexpat-dev,
+               libgettextpo0,
+               libprotobuf-dev,
+               libtool,
+               libxml2-utils,
+               make,
+               protobuf-compiler,
+               python-all (>= 2.7),
+               python-dev,
+               python-lxml,
+               python-setuptools,
+               python-sphinx,
+               ruby-ronn,
+               scons (>= 2.1.0),
+               unzip,
+               vim-common,
+               libsnmp-python,
+               libipfix,
+               contrail-sandesh,
+	       libboost-dev,
+	       libboost-chrono-dev,
+	       libboost-date-time-dev,
+	       libboost-filesystem-dev,
+	       libboost-program-options-dev,
+	       libboost-python-dev,
+	       libboost-regex-dev,
+	       libboost-system-dev,
+	       libboost-thread-dev,
+	       libcurl4-openssl-dev,
+	       google-mock,
+	       libgoogle-perftools-dev,
+	       liblog4cplus-dev,
+	       libtbb-dev,
+	       libhttp-parser-dev,
+	       libxml2-dev,
+	       libicu-dev,
+
+Package: contrail-analytics
+Architecture: any
+Depends: adduser,
+         contrail-lib (= ${binary:Version}),
+         python-bottle (>= 0.11.6),
+         python-contrail (>= ${source:Version}),
+         python-pkg-resources,
+         python-redis (>= 2.8.0),
+         python-requests (>= 1.1.0),
+         python-xmltodict,
+         redis-server (>= 2.6.13-1),
+         supervisor,
+         ${misc:Depends},
+         ${python:Depends},
+         ${shlibs:Depends}
+Description: OpenContrail analytics
+ Analytics nodes are responsible for collecting, collating and presenting
+ analytics information for trouble shooting problems and for understanding
+ network usage. Each component of the OpenContrail System generates detailed
+ event records for every significant event in the system. These event records
+ are sent to one of multiple instances (for scale-out) of the analytics node
+ that collate and store the information in a horizontally scalable database
+ using a format that is optimized for time-series analysis and queries. The
+ analytics nodes have mechanism to automatically trigger the collection of more
+ detailed records when certain event occur; the goal is to be able to get to the
+ root cause of any issue without having to reproduce it. The analytics nodes
+ provide a north-bound analytics query REST API.
+ .
+ Analytics nodes collect, store, correlate, and analyze information from
+ network elements, virtual or physical. This information includes statistics,
+ logs, events, and errors.
+
+
+Package: python-contrail
+Architecture: all
+Section: python
+Depends: python-bottle,
+         python-gevent,
+         python-importlib,
+         ${misc:Depends},
+         ${python:Depends}
+Replaces: contrail-api-lib, contrail-libs
+Conflicts: contrail-api-lib, contrail-libs
+Description: OpenContrail python-libs
+ OpenContrail is a network virtualization solution that provides an overlay
+ virtual-network to virtual-machines, containers or network namespaces.
+
+Package: contrail-lib
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: OpenContrail libraries
+ OpenContrail is a network virtualization solution that provides an overlay
+ virtual-network to virtual-machines, containers or network namespaces.
+ .
+ The package opencontrail-lib provides a support libraries used by
+ OpenContrail control and compute nodes.
+ .
+ The package python-opencontrail provides the OpenContrail API library.
+
+
+Package: contrail-build
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: OpenContrail output library
+ OpenContrail is a network virtualization solution that provides an overlay
+ virtual-network to virtual-machines, containers or network namespaces.
+ 
+

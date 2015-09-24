@@ -1,0 +1,2 @@
+build/* /usr/src/contrail-build/build/
+.sconsign.dblite /usr/src/contrail-build
