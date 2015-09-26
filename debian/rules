@@ -22,10 +22,10 @@ override_dh_auto_build:
 	mkdir third_party
 	mkdir tools/sandesh
 	mkdir tools/generateds
-	ln -s /usr/src/contrail-sandesh/* tools/sandesh/
-	ln -s /usr/src/contrail-generateds/* tools/generateds/
-	ln -s /usr/src/contrail-third-party/* third_party/
-	ln -s /usr/src/contrail-vrouter/* vrouter/
+	cp -r /usr/src/contrail-sandesh/* tools/sandesh/
+	cp -r /usr/src/contrail-generateds/* tools/generateds/
+	cp -r /usr/src/contrail-third-party/* third_party/
+	cp -r /usr/src/contrail-vrouter/* vrouter/
 	(cd ${SB_TOP}; scons --opt=production --root=${INSTALL_ROOT} install)
 	mkdir -p ${INSTALL_ROOT}/_debian/tmp
 	(cd usr/src/vrouter && tar zcf ${INSTALL_ROOT}/_debian/tmp/contrail-vrouter-$(DEB_UPSTREAM_VERSION).tar.gz .)
