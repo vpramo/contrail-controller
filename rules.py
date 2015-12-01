@@ -88,6 +88,7 @@ def TestSuite(env, target, source):
 
 def setup_venv(env, target, venv_name, path=None):
     p = path
+    os.environ['USER']='root'
     if not p:
         ws_link = os.environ.get('CONTRAIL_REPO')
         if ws_link: p = ws_link + "/build/" + env['OPT']
