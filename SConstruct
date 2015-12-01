@@ -15,8 +15,8 @@ env = rules.SetupBuildEnvironment(conf)
 
 SConscript(dirs=['controller','vrouter','tools/sandesh'])
 
-#SConscript('openstack/nova_contrail_vif/SConscript',
-#           variant_dir='build/noarch/nova_contrail_vif')
+SConscript('openstack/nova_contrail_vif/SConscript',
+           variant_dir='build/noarch/nova_contrail_vif')
 
 #SConscript('openstack/neutron_plugin/SConscript',
 #           variant_dir='build/noarch/neutron_plugin')
