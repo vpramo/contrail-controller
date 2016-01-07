@@ -1,0 +1,119 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "CONTRAIL\-API" "1" "September 2015" "" ""
+.
+.SH "NAME"
+\fBcontrail\-api\fR \- OpenContrail API
+.
+.SH "SYNOPSIS"
+\fBcontrail\-api\fR [\fIoptions\fR]
+.
+.SH "DESCRIPTION"
+API Server that provides the north\-bound interface to an Orchestration System or other application\. This interface is used to install configuration state using the high\-level data model\.
+.
+.P
+This is the main module in vnc_cfg_api_server package\. It manages interaction between HTTP/REST, address management, authentication and database interfaces\.
+.
+.SH "OPTIONS"
+.
+.IP "\(bu" 4
+\fB\-h\fR, \fB\-\-help\fR: Show this help message and exit
+.
+.IP "\(bu" 4
+\fB\-c\fR \fIFILE\fR, \fB\-\-conf_file\fR \fIFILE\fR: Specify config file
+.
+.IP "\(bu" 4
+\fB\-\-ifmap_server_ip\fR: \fIIFMAP_SERVER_IP\fR IP address of ifmap server
+.
+.IP "\(bu" 4
+\fB\-\-ifmap_server_port\fR: \fIIFMAP_SERVER_PORT\fR Port of ifmap server
+.
+.IP "\(bu" 4
+\fB\-\-ifmap_username\fR: \fIIFMAP_USERNAME\fR Username known to ifmap server
+.
+.IP "\(bu" 4
+\fB\-\-ifmap_password\fR: \fIIFMAP_PASSWORD\fR Password known to ifmap server
+.
+.IP "\(bu" 4
+\fB\-\-cassandra_server_list\fR: \fICASSANDRA_SERVER_LIST\fR [\fICASSANDRA_SERVER_LIST\fR] List of cassandra servers in IP \fIAddress:Port\fR format
+.
+.IP "\(bu" 4
+\fB\-\-redis_server_ip\fR: \fIREDIS_SERVER_IP\fR IP address of redis server
+.
+.IP "\(bu" 4
+\fB\-\-redis_server_port\fR: \fIREDIS_SERVER_PORT\fR Port of redis server
+.
+.IP "\(bu" 4
+\fB\-\-auth\fR: \fIkeystone\fR Type of authentication for user\-requests
+.
+.IP "\(bu" 4
+\fB\-\-reset_config\fR: Warning! Destroy previous configuration and start clean
+.
+.IP "\(bu" 4
+\fB\-\-wipe_config\fR: Warning! Destroy previous configuration
+.
+.IP "\(bu" 4
+\fB\-\-listen_ip_addr\fR: \fILISTEN_IP_ADDR\fR IP address to provide service on, default 0\.0\.0\.0
+.
+.IP "\(bu" 4
+\fB\-\-listen_port\fR: \fILISTEN_PORT\fR Port to provide service on, default 8082
+.
+.IP "\(bu" 4
+\fB\-\-collectors\fR: \fICOLLECTORS\fR [\fICOLLECTORS\fR] List of VNC collectors in \fIip:port\fR format
+.
+.IP "\(bu" 4
+\fB\-\-http_server_port\fR: \fIHTTP_SERVER_PORT\fR Port of local HTTP server
+.
+.IP "\(bu" 4
+\fB\-\-ifmap_server_loc\fR: \fIIFMAP_SERVER_LOC\fR Location of IFMAP server
+.
+.IP "\(bu" 4
+\fB\-\-log_local\fR: Enable local logging of sandesh messages
+.
+.IP "\(bu" 4
+\fB\-\-log_level\fR: \fILOG_LEVEL\fR Severity level for local logging of sandesh messages
+.
+.IP "\(bu" 4
+\fB\-\-logging_level\fR: \fILOGGING_LEVEL\fR Log level for python logging: DEBUG, INFO, WARN, ERROR default: WARN
+.
+.IP "\(bu" 4
+\fB\-\-log_category\fR: \fILOG_CATEGORY\fR Category filter for local logging of sandesh messages
+.
+.IP "\(bu" 4
+\fB\-\-log_file LOG_FILE\fR: Filename for the logs to be written to
+.
+.IP "\(bu" 4
+\fB\-\-multi_tenancy\fR: Validate resource permissions (implies token validation)
+.
+.IP "\(bu" 4
+\fB\-\-worker_id\fR: \fIWORKER_ID\fR Worker Id
+.
+.IP "\(bu" 4
+\fB\-\-zk_server_ip\fR: \fIZK_SERVER_IP\fR Ip \fIaddress:port\fR of zookeeper server
+.
+.IP "\(bu" 4
+\fB\-\-rabbit_server\fR: \fIRABBIT_SERVER\fR Rabbitmq server address
+.
+.IP "\(bu" 4
+\fB\-\-rabbit_user\fR: \fIRABBIT_USER\fR Username for rabbit
+.
+.IP "\(bu" 4
+\fB\-\-rabbit_vhost\fR: \fIRABBIT_VHOST\fR Vhost for rabbit
+.
+.IP "\(bu" 4
+\fB\-\-rabbit_password\fR: \fIRABBIT_PASSWORD\fR Password for rabbit
+.
+.IP "" 0
+.
+.SH "BUGS"
+Contrail is hosted in Launchpad so you can view current bugs at https://bugs\.launchpad\.net/opencontrail/\.
+.
+.SH "AUTHOR"
+OpenContrail developers \fIdev@lists\.opencontrail\.org\fR
+.
+.SH "COPYRIGHT"
+Copyright (c) 2014 OpenContrail
+.
+.SH "SEE ALSO"
+contrail\-schema(1), contrail\-discovery(1), contrail\-svc\-monitor(1)
