@@ -302,7 +302,7 @@ void IFMapChannel::DoSslHandshakeInMainThr(bool is_ssrc) {
 
     // Calling openssl api directly because boost doesn't provide a way to set
     // the cipher
-    //SSL_set_cipher_list(socket->native_handle(), "RC4-SHA");
+    SSL_set_cipher_list(socket->native_handle(), "RC4-SHA");
 
     // handshake as 'client'
     socket->async_handshake(boost::asio::ssl::stream_base::client,
@@ -770,6 +770,16 @@ void IFMapChannel::SetArcSocketOptions() {
     arc_socket_->next_layer().set_option(keepalive_count_option, ec);
     if (ec) {
         IFMAP_PEER_WARN(IFMapServerConnection, "Error setting keepalive probes",
+                        ec.message());
+    }
+#endif
+
+#ifdef TCP_USER_TIMEOUT
+    boost::asio::detail::socket_option::integer<IPPROTO_TCP, TCP_USER_TIMEOUT>
+        user_timeout_option(kSessionTcpUserTimeout);
+    arc_socket_->next_layer().set_option(user_timeout_option, ec);
+    if (ec) {
+        IFMAP_PEER_WARN(IFMapServerConnection, "Error setting user timeout",
                         ec.message());
     }
 #endif
